@@ -6,7 +6,7 @@ import string
 from packaging import version
 from colorama import Fore, Style, init
 
-SERVER_MIN_VERSION = "0.1.0"
+SERVER_MIN_VERSION = "0.6.0"
 
 class TunnelType(str):
     HTTP = "HTTP"
