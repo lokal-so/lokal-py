@@ -74,7 +74,7 @@ class Tunnel:
         if not self.address_mdns and not self.address_public:
             raise ValueError("Please enable either LAN address or random/custom public URL")
 
-        response = self.lokal.rest.post("/api/tunnel/start", json=self.__dict__)
+        response = self.lokal.rest.post(self.lokal.base_url + "/api/tunnel/start", json=self.__dict__)
         data = response.json()
 
         if not data.get('success'):
