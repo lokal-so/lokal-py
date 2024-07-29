@@ -4,6 +4,7 @@ from typing import List, Optional
 import random
 import string
 from packaging import version
+from colorama import Fore, Style, init
 
 SERVER_MIN_VERSION = "0.1.0"
 
@@ -141,14 +142,18 @@ class Tunnel:
  / /__| (_) |   < (_| | |_\__ \ (_) |
  \____/\___/|_|\_\__,_|_(_)___/\___/ """
 
-        print(banner)
-        print(f"\nMinimum Lokal Client\t{SERVER_MIN_VERSION}")
+        colors = [Fore.MAGENTA, Fore.BLUE, Fore.CYAN, Fore.GREEN, Fore.RED]
+        chosen_color = random.choice(colors)
+        print(chosen_color + Style.BRIGHT + banner + Style.RESET_ALL)
+        print()
+
+        print(f"{Fore.RED}Minimum Lokal Client\t{Style.RESET_ALL}{SERVER_MIN_VERSION}")
         try:
-            print(f"Public Address\t\thttps://{self.get_public_address()}")
+            print(f"{Fore.CYAN}Public Address\t\t{Style.RESET_ALL}https://{self.get_public_address()}")
         except ValueError:
             pass
         try:
-            print(f"LAN Address\t\thttps://{self.get_lan_address()}")
+            print(f"{Fore.GREEN}LAN Address\t\t{Style.RESET_ALL}https://{self.get_lan_address()}")
         except ValueError:
             pass
         print()

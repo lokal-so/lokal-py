@@ -6,6 +6,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "requests>=2.25.1",
+        "colorama>=0.4.6",
         "packaging>=20.9",
     ],
     author="RUBI JIHANTORO",
