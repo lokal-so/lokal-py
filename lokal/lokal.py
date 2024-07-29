@@ -20,6 +20,9 @@ class Options:
         self.response_header_add: List[str] = []
         self.response_header_remove: List[str] = []
         self.header_key: List[str] = []
+    
+    def to_dict(self):
+        return self.__dict__
 
 class Tunnel:
     def __init__(self, lokal):
@@ -37,6 +40,12 @@ class Tunnel:
         self.options: Options = Options()
         self.ignore_duplicate: bool = False
         self.startup_banner: bool = False
+
+    def to_dict(self):
+        return {
+            **self.__dict__,
+            'options': self.options.to_dict()
+        }
 
     def set_local_address(self, local_address: str):
         self.local_address = local_address
@@ -74,7 +83,7 @@ class Tunnel:
         if not self.address_mdns and not self.address_public:
             raise ValueError("Please enable either LAN address or random/custom public URL")
 
-        payload = self.__dict__.copy()
+        payload = self.to_dict().copy()
         del payload['lokal']
 
         response = self.lokal.rest.post(self.lokal.base_url + "/api/tunnel/start", json=payload)
