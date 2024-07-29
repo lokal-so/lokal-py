@@ -2,6 +2,10 @@
 
 Library for interacting with Lokal Client REST API
 
+```sh
+pip3 install lokal-py
+```
+
 ```python
 from lokal import new_default, TunnelType
 
