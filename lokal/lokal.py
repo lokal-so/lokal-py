@@ -7,7 +7,7 @@ from packaging import version
 
 SERVER_MIN_VERSION = "0.1.0"
 
-class TunnelType(Enum):
+class TunnelType(str):
     HTTP = "HTTP"
 
 class Options:
