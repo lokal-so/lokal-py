@@ -82,7 +82,7 @@ class Tunnel:
                 self.address_public = data['data'][0]['address_public']
                 self.address_mdns = data['data'][0]['address_mdns']
                 self.id = data['data'][0]['id']
-                self.show_startup_banner()
+                self.print_startup_banner()
                 return self
             raise ValueError(data.get('message', 'Tunnel creation failed'))
 
@@ -90,7 +90,7 @@ class Tunnel:
         self.address_mdns = data['data'][0]['address_mdns']
         self.id = data['data'][0]['id']
 
-        self.show_startup_banner()
+        self.print_startup_banner()
         return self
 
     def get_lan_address(self) -> str:
@@ -118,7 +118,7 @@ class Tunnel:
 
         self.address_public = data['data'][0]['address_public']
 
-    def show_startup_banner(self):
+    def print_startup_banner(self):
         if not self.startup_banner:
             return
 
